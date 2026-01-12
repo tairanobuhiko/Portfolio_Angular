@@ -1,0 +1,100 @@
+<app-site-header></app-site-header>
+<main>
+  <div class="firstview firstview-bg">
+    <div class="firstview__inner">
+      <div class="firstview__main">
+        <div class="firstview__main-pict obj-fit-img">
+          <img [src]="profileImage" alt="プロフィール画像" />
+        </div>
+        <div class="firstview__info">
+          <h2>
+            <span class="firstview__info-name">{{ nameKanji }}</span>
+            <span class="firstview__info-name-sm">{{ nameRoman }}</span>
+          </h2>
+          <ul class="firstview__info-origin-list">
+            <li class="firstview__info-origin-item">{{ birth }}</li>
+            <li class="firstview__info-origin-item">{{ hometown }}</li>
+          </ul>
+          <ul class="firstview__info-account-list">
+            <li class="firstview__info-account-item" *ngFor="let account of accounts">
+              <a [href]="account.url" target="_blank" rel="noreferrer">
+                <img [src]="account.icon" class="firstview__info-account-pict" [alt]="account.label" />
+                <span class="firstview__info-account-name">{{ account.label }}</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="firstview__point">
+        <div class="firstview__point-heading">
+          <h3>POINT</h3>
+        </div>
+        <ul class="firstview__point-list">
+          <li class="firstview__point-item" *ngFor="let point of points">{{ point }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <section id="a-profile" class="profile">
+    <div class="section-inner">
+      <div class="heading">
+        <h2>PROFILE<span>プロフィール</span></h2>
+      </div>
+      <div class="contents">
+        <div class="profile__text-area">
+          <p *ngFor="let paragraph of profileParagraphs">{{ paragraph }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="a-skill" class="skill">
+    <div class="section-inner">
+      <div class="heading">
+        <h2>SKILL<span>スキル</span></h2>
+      </div>
+      <div class="contents">
+        <ul class="skill__list">
+          <li class="skill__item" *ngFor="let skill of skills">
+            <h3>{{ skill.title }}</h3>
+            <h4 [innerHTML]="skill.detail"></h4>
+            <p *ngIf="skill.note">{{ skill.note }}</p>
+          </li>
+        </ul>
+      </div>
+      <div class="skill__text-area">
+        <p *ngFor="let note of skillNotes">{{ note }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="a-works" class="works">
+    <div class="section-inner">
+      <div class="heading">
+        <h2>WORKS<span>実績</span></h2>
+      </div>
+      <div class="contents">
+        <ul class="works__list">
+          <li class="works__item" *ngFor="let work of works">
+            <div class="works__item-pict">
+              <a
+                [routerLink]="['/works', work.id]"
+                [style.background-image]="'url(' + work.hero.pc + ')'"
+                [attr.aria-label]="work.title"
+              ></a>
+            </div>
+            <div class="works__item-text-block">
+              <h3 [innerHTML]="work.titleHtml || work.title"></h3>
+              <p>{{ work.stack }}</p>
+            </div>
+            <div class="works__item-btn-block">
+              <a [routerLink]="['/works', work.id]" class="button">More</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+<footer id="footer" class="footer"><p>&copy; Taira Nobuhiko.</p></footer>

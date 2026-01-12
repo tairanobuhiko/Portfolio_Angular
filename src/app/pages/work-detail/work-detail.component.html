@@ -1,0 +1,131 @@
+<ng-container *ngIf="work as item">
+  <app-site-header></app-site-header>
+  <div class="p-work">
+    <main>
+      <section class="p-work-firstview">
+        <div class="section-inner">
+          <h2 [innerHTML]="item.titleHtml || item.title"></h2>
+          <div class="p-work-firstview__pict obj-fit-img">
+            <img [src]="item.hero.pc" class="show-pc" [alt]="item.hero.alt" />
+            <img *ngIf="item.hero.sp" [src]="item.hero.sp" class="show-sp" [alt]="item.hero.alt" />
+          </div>
+          <div class="p-work-firstview__text-area">
+            <h3 class="p-work-firstview__text-titile">開発環境</h3>
+            <p class="p-work-firstview__text">{{ item.environment }}</p>
+            <p class="p-work-firstview__text-link">
+              <a [href]="item.repositoryUrl" target="_blank" rel="noreferrer">{{ item.repositoryUrl }}</a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="p-work-summary">
+        <div class="section-inner">
+          <ul class="p-work-summary__list">
+            <li class="p-work-summary__item">
+              <h3>概要</h3>
+              <table class="p-work-summary__item-table">
+                <tr *ngFor="let row of item.summaryRows; trackBy: trackByRow">
+                  <th>{{ row.label }}</th>
+                  <td>
+                    <a *ngIf="row.isLink" [href]="row.value" target="_blank" rel="noreferrer">{{ row.value }}</a>
+                    <span *ngIf="!row.isLink">{{ row.value }}</span>
+                  </td>
+                </tr>
+              </table>
+              <div *ngIf="item.stopServiceMessage" class="stop-service">{{ item.stopServiceMessage }}</div>
+            </li>
+            <li class="p-work-summary__item">
+              <h3>動作テスト</h3>
+              <p *ngIf="item.testNote">{{ item.testNote }}</p>
+              <ng-container *ngFor="let table of item.testTables; trackBy: trackByTableTitle">
+                <h4 *ngIf="table.title">{{ table.title }}</h4>
+                <table class="p-work-summary__item-table">
+                  <tr *ngFor="let row of table.rows; trackBy: trackByRow">
+                    <th>{{ row.label }}</th>
+                    <td>{{ row.value }}</td>
+                  </tr>
+                </table>
+              </ng-container>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="p-work-outline">
+        <div class="section-inner">
+          <div class="heading">
+            <h2>OUTLINE<span>アプリケーションの概要</span></h2>
+          </div>
+          <div class="contents">
+            <div class="p-work-outline__text">
+              <p *ngFor="let text of item.outline">{{ text }}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="p-work-about" *ngIf="item.background?.length || item.craftPoints.length || item.futurePlans?.length">
+        <div class="section-inner">
+          <ul class="p-work-about__list">
+            <li class="p-work-about__item" *ngIf="item.background?.length">
+              <h3>開発に至った経緯</h3>
+              <div class="p-work-about__item-block">
+                <p *ngFor="let text of item.background">{{ text }}</p>
+              </div>
+            </li>
+            <li class="p-work-about__item" *ngIf="item.craftPoints.length">
+              <h3>開発で工夫したこと</h3>
+              <div
+                class="p-work-about__item-block"
+                [ngClass]="{ 'p-work-about__item-block-2column': item.aboutImages?.length }"
+              >
+                <div class="p-work-about__item-block-pict obj-fit-img" *ngIf="item.aboutImages?.length">
+                  <img *ngFor="let image of item.aboutImages" [src]="image" [alt]="item.title" />
+                </div>
+                <div class="p-work-about__item-block-text">
+                  <p *ngFor="let point of item.craftPoints">{{ point }}</p>
+                </div>
+              </div>
+            </li>
+            <li class="p-work-about__item" *ngIf="item.futurePlans?.length">
+              <h3>今後実装したいと思っていること</h3>
+              <div class="p-work-about__item-block">
+                <p *ngFor="let plan of item.futurePlans">{{ plan }}</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="p-work-others">
+        <div class="section-inner">
+          <div class="heading">
+            <h2>OTHERS<span>その他実績</span></h2>
+          </div>
+          <div class="contents">
+            <ul class="p-work-others__list">
+              <li class="p-work-others__item" *ngFor="let other of others">
+                <div class="p-work-others__item-pict">
+                  <a
+                    [routerLink]="['/works', other.id]"
+                    [style.background-image]="'url(' + other.hero.pc + ')'"
+                    [attr.aria-label]="other.title"
+                  ></a>
+                </div>
+                <div class="p-work-others__item-text-block">
+                  <h3 [innerHTML]="other.titleHtml || other.title"></h3>
+                  <p>{{ other.stack }}</p>
+                </div>
+                <div class="p-work-others__item-btn-block">
+                  <a [routerLink]="['/works', other.id]" class="button">More</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer id="footer" class="footer"><p>&copy; Taira Nobuhiko.</p></footer>
+  </div>
+</ng-container>

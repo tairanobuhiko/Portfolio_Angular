@@ -1,0 +1,29 @@
+<header id="header" class="header">
+  <div class="header__logo">
+    <h1>
+      <a routerLink="/">
+        <span class="header__logo-title">Taira Nobuhiko</span>
+        <span class="header__logo-sub">Portfolio</span>
+      </a>
+    </h1>
+  </div>
+  <div class="header__hamburger">
+    <i></i>
+  </div>
+  <nav class="header__gnav">
+    <ul class="header__gnav-list">
+      <li class="header__gnav-item" *ngFor="let item of navItems">
+        <a
+          *ngIf="item.fragment"
+          routerLink="/"
+          [fragment]="item.fragment"
+        >
+          {{ item.label }}
+        </a>
+        <a *ngIf="item.href" [href]="item.href">
+          {{ item.label }}
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
