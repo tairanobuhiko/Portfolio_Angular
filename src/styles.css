@@ -1,0 +1,8 @@
+/* グローバルスタイルは public/css/style.css を参照。Angular 側では軽微な調整のみ行う。 */
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
