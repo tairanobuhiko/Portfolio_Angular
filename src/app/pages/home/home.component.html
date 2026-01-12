@@ -4,7 +4,7 @@
     <div class="firstview__inner">
       <div class="firstview__main">
         <div class="firstview__main-pict obj-fit-img">
-          <img [src]="profileImage" alt="プロフィール画像" />
+          <img [src]="profileImage" alt="プロフィール画像" style="border-radius: 50%;" />
         </div>
         <div class="firstview__info">
           <h2>
@@ -18,7 +18,12 @@
           <ul class="firstview__info-account-list">
             <li class="firstview__info-account-item" *ngFor="let account of accounts">
               <a [href]="account.url" target="_blank" rel="noreferrer">
-                <img [src]="account.icon" class="firstview__info-account-pict" [alt]="account.label" />
+                <img
+                  [src]="account.icon"
+                  class="firstview__info-account-pict"
+                  [alt]="account.label"
+                  style="border-radius: 50%;"
+                />
                 <span class="firstview__info-account-name">{{ account.label }}</span>
               </a>
             </li>

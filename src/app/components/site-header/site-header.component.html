@@ -7,7 +7,7 @@
       </a>
     </h1>
   </div>
-  <div class="header__hamburger">
+  <div class="header__hamburger" [class.is-active]="navOpen" (click)="toggleNav()">
     <i></i>
   </div>
   <nav class="header__gnav">
@@ -17,10 +17,11 @@
           *ngIf="item.fragment"
           routerLink="/"
           [fragment]="item.fragment"
+          (click)="closeNav()"
         >
           {{ item.label }}
         </a>
-        <a *ngIf="item.href" [href]="item.href">
+        <a *ngIf="item.href" [href]="item.href" (click)="closeNav()">
           {{ item.label }}
         </a>
       </li>

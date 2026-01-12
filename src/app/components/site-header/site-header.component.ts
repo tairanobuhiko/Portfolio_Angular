@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { NgFor, NgIf } from '@angular/common';
+import { NavigationEnd, Router, RouterLink } from '@angular/router';
 
 type NavItem = {
   label: string;
@@ -10,7 +11,7 @@ type NavItem = {
 @Component({
   selector: 'app-site-header',
   standalone: true,
-  imports: [RouterLink],
+  imports: [NgFor, NgIf, RouterLink],
   templateUrl: './site-header.component.html',
 })
 export class SiteHeaderComponent {
@@ -20,4 +21,23 @@ export class SiteHeaderComponent {
     { label: 'WORKS', fragment: 'a-works' },
     { label: 'CONTACT', href: 'mailto:no.215.tyler@gmail.com' },
   ];
+
+  navOpen = false;
+
+  constructor(router: Router) {
+    // ルーティング時に自動でメニューを閉じる
+    router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.navOpen = false;
+      }
+    });
+  }
+
+  toggleNav(): void {
+    this.navOpen = !this.navOpen;
+  }
+
+  closeNav(): void {
+    this.navOpen = false;
+  }
 }

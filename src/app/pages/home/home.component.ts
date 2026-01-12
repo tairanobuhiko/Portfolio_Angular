@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 import { WORKS } from '../../data/works';
@@ -20,7 +20,7 @@ type SkillItem = {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NgFor, RouterLink, SiteHeaderComponent],
+  imports: [NgFor, NgIf, RouterLink, SiteHeaderComponent],
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
