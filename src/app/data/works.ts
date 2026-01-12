@@ -44,8 +44,8 @@ export const WORKS: WorkData[] = [
     environment: 'Ruby / Ruby on Rails / MySQL / GitHub / Render / Visual Studio Code / draw.io',
     repositoryUrl: 'https://github.com/tairanobuhiko/furima-40102',
     hero: {
-      pc: '/images/work/01/furimaApp_image.png',
-      sp: '/images/work/01/furimaApp_image_sp.jpg',
+      pc: 'images/work/01/furimaApp_image.png',
+      sp: 'images/work/01/furimaApp_image_sp.jpg',
       alt: 'FURIMA（フリマアプリ）',
     },
     duration: '50時間',
@@ -92,8 +92,8 @@ export const WORKS: WorkData[] = [
       'Ruby / Ruby on Rails / Tailwind CSS / JavaScript / PostgreSQL / Render / AWS S3 / StableDiffusion / OpenAI(DALL-E3) / Google Apps Script / Twitter API / Tiny_URL / GitHub / GitHub Actions / Figma / draw.io / Cursor / Google Analytics',
     repositoryUrl: 'https://github.com/tairanobuhiko/word_chain_image_generator',
     hero: {
-      pc: '/images/work/02/originalApp_image02.png',
-      sp: '/images/work/02/originalApp_image_sp.jpg',
+      pc: 'images/work/02/originalApp_image02.png',
+      sp: 'images/work/02/originalApp_image_sp.jpg',
       alt: 'しりとり画像ジェネレーター（Word Chain Image Generator）',
     },
     duration: '150時間',
@@ -134,7 +134,7 @@ export const WORKS: WorkData[] = [
       'スコアリング機能：しりとりを続けたくなる要素＝タイピング練習につながる要素として検討しています。',
       '制限時間機能：ゲーム性を高める目的ですが、ペルソナである小学校低学年に対しては楽しめなくなる要素の可能性もあるため難易度選択の追加要素として検討しています。',
     ],
-    aboutImages: ['/images/work/02/IMG_2645.jpg', '/images/work/02/IMG_2647.JPG'],
+    aboutImages: ['images/work/02/IMG_2645.jpg', 'images/work/02/IMG_2647.JPG'],
   },
 ];
 
