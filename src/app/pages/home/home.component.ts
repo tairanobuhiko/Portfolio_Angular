@@ -24,17 +24,17 @@ type SkillItem = {
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
-  readonly profileImage = '/images/profile_image.png';
+  readonly profileImage = 'images/profile_image.png';
   readonly nameKanji = '平 伸彦';
   readonly nameRoman = 'Taira Nobuhiko';
   readonly birth = '1986年08月25日生まれ';
   readonly hometown = '群馬県出身';
 
   readonly accounts: AccountLink[] = [
-    { label: 'Qiita', url: 'https://qiita.com/no215', icon: '/images/qiita-icon.png' },
-    { label: 'GitHub', url: 'https://github.com/tairanobuhiko', icon: '/images/github-mark.svg' },
-    { label: 'X', url: 'https://x.com/tairanobuhiko', icon: '/images/logo_metaX-3.svg' },
-    { label: 'Zenn', url: 'https://zenn.dev/no215', icon: '/images/logo-only.svg' },
+    { label: 'Qiita', url: 'https://qiita.com/no215', icon: 'images/qiita-icon.png' },
+    { label: 'GitHub', url: 'https://github.com/tairanobuhiko', icon: 'images/github-mark.svg' },
+    { label: 'X', url: 'https://x.com/tairanobuhiko', icon: 'images/logo_metaX-3.svg' },
+    { label: 'Zenn', url: 'https://zenn.dev/no215', icon: 'images/logo-only.svg' },
   ];
 
   readonly points: string[] = [
